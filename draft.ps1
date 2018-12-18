@@ -39,12 +39,13 @@ Function AddIpToProperties($properties, $address, $subnetmask) {
 Function RemoveIpFromProperties($properties, $address) {
     $restrictions = $properties.ipSecurityRestrictions
     $newRestrictions = @()
-
+    Write-Host("address to remove $($address)")
     foreach ($restiction in $restrictions) {
+    Write-Host("source $($restiction.ipAddress)")
+
         if($address -ne $restiction.ipAddress)  
         {
-            $newRestrictions += $address
-            return;
+            $newRestrictions += $restiction
         }
     }
 
