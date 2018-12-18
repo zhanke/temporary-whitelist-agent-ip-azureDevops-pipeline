@@ -38,7 +38,7 @@ Function AddIpToProperties($properties, $address, $subnetmask) {
 # Function for adding the IP Address to to the WebApp Properties.
 Function RemoveIpFromProperties($properties, $address) {
     $restrictions = $properties.ipSecurityRestrictions
-    $newRestrictions = @{}
+    $newRestrictions = @()
 
     foreach ($restiction in $restrictions) {
         if($address -ne $restiction.ipAddress)  
